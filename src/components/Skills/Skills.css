@@ -1,0 +1,130 @@
+#skills {
+  min-height: calc(100vh - 4rem);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #0a0a0a; /* same as intro */
+  padding: 2rem 5%;
+  text-align: center;
+}
+
+#skills h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 3rem;
+  background: linear-gradient(90deg, #ffffff, #d1d1d1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 4px 14px rgba(255, 255, 255, 0.08);
+  letter-spacing: 2px;
+}
+
+/* Grid Layout */
+.skills-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+  width: 100%;
+}
+
+/* Glassmorphism Card */
+.skill-item {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 12px;
+  padding: 2rem;
+  /* max-width: 15rem; */
+  /* height: 12rem; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(14px);
+  border: 1px solid #222;
+  transition: all 0.4s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.12),
+    rgba(200, 200, 200, 0.03),
+    rgba(255, 255, 255, 0.12)
+  );
+  background-size: 200% 200%;
+  animation: shine 10s ease-in-out infinite;
+  opacity: 0.3;
+  border-radius: inherit;
+  z-index: 0;
+}
+
+.skill-item:hover {
+  box-shadow: 0 10px 35px rgba(255, 255, 255, 0.12);
+  border-color: #444;
+}
+
+/* Icon */
+.skill-item img {
+  width: 70px;
+  height: 70px;
+  transition: transform 0.35s ease;
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.15));
+  position: relative;
+  z-index: 1;
+}
+.skill-item:hover img {
+  transform: scale(1.2) rotate(6deg);
+  filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.25));
+}
+
+/* Text */
+.skill-item span {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #e5e5e5;
+  letter-spacing: 1px;
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.05);
+  position: relative;
+  z-index: 1;
+}
+
+/* Animation same as intro shine */
+@keyframes shine {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  #skills {
+    padding: 3rem 2rem;
+  }
+
+  #skills h2 {
+    font-size: 2.2rem;
+  }
+
+  .skills-list {
+    gap: 1rem;
+  }
+
+  .skill-item {
+    height: 8rem;
+  }
+
+  .skill-item img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .skill-item span {
+    font-size: 0.85rem;
+  }
+}

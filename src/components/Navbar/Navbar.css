@@ -1,0 +1,152 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 4rem;
+  width: 100%;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+ background: rgba(10, 10, 10, 0.85); 
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  color: #e5e5e5;
+}
+
+.navbar-logo img {
+  margin-top: 0.5rem;
+  height: 3rem;
+  width: auto;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.navbar-link {
+  position: relative;
+  font-weight: 500;
+  font-size: 0.85rem;
+  color: #bdbdbd;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.navbar-link:hover {
+  color: #ffffff;
+}
+
+.navbar-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: #ffffff;
+  transition: width 0.3s ease;
+}
+.navbar-link:hover::after {
+  width: 100%;
+}
+
+.navbar-link.active {
+  color: #fff;
+  font-weight: 600;
+}
+
+.navbar-button {
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  background: #1a1a1a;
+  border: 1px solid rgba(255,255,255,0.1);
+  color: #e5e5e5;
+  transition: all 0.3s ease;
+}
+
+.navbar-button:hover {
+  background: #2a2a2a;
+  color: #ffffff;
+}
+
+.navbar-menu-icon {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+
+@media (max-width: 768px) {
+  body.menu-open {
+    overflow: hidden;
+  }
+
+  body.menu-open::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:  rgba(10, 10, 10, 0.85);
+    backdrop-filter: blur(2px);
+    z-index: 998;
+  }
+
+  .navbar-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    background: #0a0a0a;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    transition: right 0.4s ease-in-out;
+    box-shadow: -2px 0px 10px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+  }
+
+  .navbar-links.active {
+    right: 0;
+  }
+
+  /* Animate links */
+  .navbar-link {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease;
+  }
+
+  .navbar-links.active .navbar-link {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Stagger effect */
+  .navbar-links.active .navbar-link:nth-child(1) {
+    transition-delay: 0.1s;
+  }
+  .navbar-links.active .navbar-link:nth-child(2) {
+    transition-delay: 0.2s;
+  }
+  .navbar-links.active .navbar-link:nth-child(3) {
+    transition-delay: 0.3s;
+  }
+  .navbar-links.active .navbar-link:nth-child(4) {
+    transition-delay: 0.4s;
+  }
+
+  .navbar-menu-icon {
+    display: block;
+    color: #333333;
+    z-index: 1001;
+  }
+
+  .navbar-button {
+    display: none;
+  }
+}
