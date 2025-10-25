@@ -59,6 +59,7 @@ const projectsData = [
     demo: "https://saaad-ahmad.github.io/QR-Code-Generator/",
     github: "https://github.com/Saaad-Ahmad/QR-Code-Generator",
   },
+  
 ];
 
 const categories = ["All", "Web"];

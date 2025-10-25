@@ -3,18 +3,6 @@ import "./Skills.css";
 import logo from "../../assets/logo.png"; // replace with real icons later
 
 export default function Skills() {
-  // const skills = [
-  //   "html5",
-  //   "css3",
-  //   "javascript",
-  //   "react",
-  //   "bootstrap",
-  //   "nodejs",
-  //   "express",
-  //   "mysql",
-  //   "cplusplus",
-  // ];
-
   const skills = [
     {
       name: "html5",
@@ -33,7 +21,7 @@ export default function Skills() {
       type: "original",
     },
     {
-      name: "bootstrap",
+      name: "tailwindcss",
       type: "original",
     },
     {
@@ -64,8 +52,6 @@ export default function Skills() {
               src={`https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${skill.name}/${skill.name}-${skill.type}.svg`}
               alt={skill.name}
             />
-
-            {/* <span>{skill}</span> */}
           </div>
         ))}
       </div>
