@@ -198,6 +198,10 @@
   .contact-subtitle {
     font-size: 0.9rem;
   }
+  
+   .contact-form {
+    min-width: auto;
+  }
 
   .contact-form input,
   .contact-form textarea {
